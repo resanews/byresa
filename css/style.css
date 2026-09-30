@@ -1328,6 +1328,11 @@ body.dark-mode .navprincipal a:hover {
     color: var(--oscuro);
 }
 
+/* Hacer que el Sol sea azul marino cuando el botón es blanco en modo oscuro */
+body.dark-mode .btn-dark-mode #svg-sol {
+    stroke: #003066 !important; 
+}
+
 /* --- 4. SECCIÓN HERO (Terminal, Botón y Scroll) --- */
 body.dark-mode .hero-mockup {
     background-color: #001f3e; 
@@ -1392,7 +1397,6 @@ body.dark-mode .item-herramienta:hover svg,
 body.dark-mode .item-herramienta:hover img {
     filter: brightness(0) invert(1) opacity(1) !important; 
 }   
-
 
 /* --- 7. TARJETAS BENTO Y FORMULARIO (Rescate de profundidad) --- */
 body.dark-mode .tarjeta-bento,
