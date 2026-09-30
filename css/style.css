@@ -1328,7 +1328,7 @@ body.dark-mode .navprincipal a:hover {
     color: var(--oscuro);
 }
 
-/* Hacer que el Sol sea azul marino cuando el botón es blanco en modo oscuro */
+/* Forzar que el Sol sea azul marino cuando el botón es blanco en modo oscuro */
 body.dark-mode .btn-dark-mode #svg-sol {
     stroke: #003066 !important; 
 }
@@ -1385,18 +1385,15 @@ body.dark-mode .item-herramienta:hover {
     border: 1px solid rgba(255, 255, 255, 0.25) !important; 
 }
 
-/* Estado de reposo: Íconos en blanco translúcido (Gris claro) */
 body.dark-mode .item-herramienta svg,
 body.dark-mode .item-herramienta img {
-    /* brightness(0) vuelve cualquier icono negro, y invert(1) lo vuelve blanco puro */
     filter: brightness(0) invert(1) opacity(0.7) !important; 
 }
 
-/* Estado Hover: Fijos en blanco puro brillante */
 body.dark-mode .item-herramienta:hover svg,
 body.dark-mode .item-herramienta:hover img {
     filter: brightness(0) invert(1) opacity(1) !important; 
-}   
+}
 
 /* --- 7. TARJETAS BENTO Y FORMULARIO (Rescate de profundidad) --- */
 body.dark-mode .tarjeta-bento,
@@ -1407,3 +1404,192 @@ body.dark-mode .callout-portafolio {
     background-color: rgba(255, 255, 255, 0.03); 
     border: 1px solid rgba(255, 255, 255, 0.08);
 }
+
+/* ==========================================================================
+   12. MEDIA KIT PANEL MAESTRO Y DASHBOARD
+   ========================================================================== */
+.mk-panel-maestro {
+    background-color: var(--blanco);
+    border-radius: 2rem;
+    padding: 5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--grisbaj);
+}
+
+/* --- CABECERA DE PERFIL (Alineación Centrada) --- */
+.mk-perfil-header { 
+    display: flex; 
+    align-items: center; /* Centra el bloque de texto verticalmente respecto a la foto */
+    justify-content: flex-start !important; 
+    gap: 3rem; /* Espacio entre foto y texto */
+    margin-bottom: 3rem; 
+    width: 100%;
+}
+
+.mk-perfil-datos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start !important;
+    text-align: left !important;
+    margin: 0 !important; 
+}
+
+.mk-avatar { 
+    width: 120px; 
+    height: 120px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15); 
+    flex-shrink: 0; 
+}
+
+.mk-perfil-datos h1 { 
+    font-size: 3.8rem; 
+    color: var(--oscuro); 
+    margin: 0 0 1rem 0 !important; /* Separación exacta hacia las categorías */
+    padding: 0;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+/* Diseño de texto limpio para las categorías */
+.mk-tags-texto {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem; /* Mayor espacio horizontal entre palabras */
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--oscuro);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.mk-divisor { 
+    height: 1px; 
+    background-color: var(--grisbaj); 
+    margin: 3rem 0; 
+}
+
+/* --- TEXTOS COMUNIDAD Y SOBRE MÍ --- */
+.mk-titulo-seccion { 
+    font-size: 1.2rem; 
+    font-weight: 800; 
+    color: var(--gris); 
+    letter-spacing: 1.5px; 
+    margin-bottom: 1.5rem; 
+    text-transform: uppercase; 
+}
+
+.mk-cifra-total { 
+    font-size: 6rem; 
+    color: var(--primario); 
+    line-height: 1; 
+    margin-bottom: 1rem; 
+}
+
+.mk-iconos-redes { 
+    display: flex; 
+    gap: 1.5rem; 
+    font-size: 1.4rem; 
+    font-weight: 700; 
+    color: var(--oscuro); 
+    margin-bottom: 3rem; 
+}
+
+.mk-seccion-info p { 
+    font-size: 1.5rem; 
+    color: var(--gris); 
+    line-height: 1.8; 
+    margin-bottom: 1.5rem; 
+}
+
+/* --- DASHBOARD Y TABS --- */
+.mk-interfaz-dinamica { display: flex; flex-direction: column; width: 100%; }
+.mk-tabs-superior { display: flex; gap: 1.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--grisbaj); margin-bottom: 3rem; overflow-x: auto; scrollbar-width: none; }
+.mk-tabs-superior::-webkit-scrollbar { display: none; }
+
+.mk-tab-btn { display: flex; align-items: center; gap: 0.8rem; background-color: transparent; color: var(--gris); border: none; padding: 1rem 2rem; border-radius: 1rem; font-size: 1.4rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; white-space: nowrap; }
+.mk-tab-btn:hover { color: var(--oscuro); }
+.mk-tab-btn.activo { background-color: var(--oscuro); color: var(--blanco); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+
+/* --- PANELES DE ESTADÍSTICAS --- */
+.mk-panel-stats { display: none; animation: fadeIn 0.4s ease; }
+.mk-panel-stats.activo { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Alineación Forzada a la Izquierda para Cabeceras de Plataforma */
+.mk-platform-header { 
+    display: flex; 
+    justify-content: flex-start !important; 
+    align-items: flex-start !important; 
+    margin: 0 0 3rem 0 !important; 
+    padding: 0 !important;
+    width: 100%;
+}
+
+.mk-ph-izq {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important;
+    text-align: left !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.mk-ph-izq h2 { 
+    font-size: 3.5rem; 
+    color: var(--oscuro); 
+    margin: 0 0 0.5rem 0 !important; /* Destruye el margen izquierdo predeterminado del H2 */
+    padding: 0 !important;
+    line-height: 1;
+}
+
+.mk-ph-izq p { 
+    font-size: 1.4rem; 
+    font-weight: 600; 
+    color: var(--gris); 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    margin: 0 !important; /* Alinea el arroba al ras del H2 */
+    padding: 0 !important;
+}
+
+.mk-summary-title { 
+    font-size: 1.6rem; 
+    font-weight: 800; 
+    color: var(--oscuro); 
+    margin: 0 0 2rem 0 !important; /* Destruye el margen izquierdo del H3 */
+    padding: 0 !important;
+    text-align: left !important;
+}
+
+/* Tarjetas Estilo Riimo */
+.mk-grid-dashboard { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+.mk-stat-card { background-color: #f4f5f7; border-radius: 1rem; padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between; min-height: 140px; }
+.mk-stat-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+.mk-stat-label { display: flex; align-items: center; gap: 0.8rem; font-size: 1.1rem; font-weight: 800; color: var(--gris); letter-spacing: 1px; text-transform: uppercase; }
+.mk-stat-value { font-size: 3.2rem; font-weight: 800; color: var(--oscuro); }
+
+/* ==========================================================================
+   AJUSTES MODO OSCURO (DARK MODE) PARA EL MEDIA KIT
+   ========================================================================== */
+body.dark-mode .mk-panel-maestro { background-color: #001224; border-color: rgba(255, 255, 255, 0.05); }
+body.dark-mode .mk-perfil-datos h1, body.dark-mode .mk-iconos-redes { color: #ffffff; }
+
+/* El texto sin fondo de las categorías pasa a blanco */
+body.dark-mode .mk-tags-texto { color: #ffffff; }
+
+body.dark-mode .mk-divisor { background-color: rgba(255, 255, 255, 0.1); }
+
+body.dark-mode .mk-tabs-superior { border-bottom-color: rgba(255, 255, 255, 0.1); }
+body.dark-mode .mk-tab-btn { color: rgba(255, 255, 255, 0.5); }
+body.dark-mode .mk-tab-btn:hover { color: #ffffff; }
+body.dark-mode .mk-tab-btn.activo { background-color: #ffffff; color: #000000; }
+
+body.dark-mode .mk-ph-izq h2, body.dark-mode .mk-summary-title, body.dark-mode .mk-stat-value { color: #ffffff; }
+body.dark-mode .mk-sync-status { background-color: rgba(255, 255, 255, 0.05); color: #ffffff; border-color: rgba(255, 255, 255, 0.1); }
+body.dark-mode .mk-stat-card { background-color: #121212; border: 1px solid rgba(255, 255, 255, 0.05); }
+body.dark-mode .mk-stat-label { color: rgba(255, 255, 255, 0.7); }  
