@@ -1,0 +1,1405 @@
+/* ==========================================================================
+   1. VARIABLES Y CONFIGURACIÓN DE COLORES
+   ========================================================================== */
+:root {
+    --blanco: #ffffff; 
+    --oscuro: #212121;
+    --primario: #003066;
+    --secundario: #004A75;
+    --gris: #757575;
+    --grisbaj: #DFE9F3;
+    --negro: #000000;
+}
+
+/* ==========================================================================
+   2. ESTILOS BASE Y GLOBALES (Reset & HTML)
+   ========================================================================== */
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 16px; 
+    font-family: "Stack Sans Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--blanco);
+    margin: 0; 
+    overflow-x: hidden;
+}
+
+/* Tipografías Base */
+h1 { font-size: 3.8rem; }
+h2 { font-size: 2.8rem; }
+h3 { font-size: 1.8rem; }
+h1, h2, h3 { 
+    text-align: center; 
+}
+
+/* ==========================================================================
+   3. CLASES DE UTILIDAD Y COMPONENTES REUSABLES
+   ========================================================================== */
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.sombra {
+    box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.75);
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.75);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.75);
+    padding: 2rem;
+    border-radius: 0;
+}
+
+.seccion-separada {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+/* Helpers Flexbox / Ancho */
+.flex { display: flex; }
+.w100 { width: 100%; }
+.alide { justify-content: flex-end; }
+
+/* Botones genéricos */
+.boton {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: .5rem;
+    width: 80%;
+    border: none;
+    text-align: center;
+    display: inline-block;
+}
+
+.boton:hover {
+    cursor: pointer;
+}
+
+@media (min-width: 480px) {
+    .boton { width: auto; }
+}
+
+/* ==========================================================================
+   4. ESTRUCTURA DE NAVEGACIÓN Y HERO (Estilo Apple Keynote)
+   ========================================================================== */
+
+/* Barra Superior Fina e Integrada (Sticky Nav) */
+.barra-superior {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+@media (min-width: 768px) {
+    .nav-container {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1.2rem 2rem;
+    }
+}
+
+/* Título e Identidad */
+.titulo {
+    color: var(--primario);
+    margin: 0;
+    font-size: 2rem;
+    letter-spacing: -0.5px;
+    font-weight: 400;
+}
+
+.titulo span {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-right: 1px;
+}
+
+/* Menú de Navegación Fino e Integrado */
+.navprincipal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
+.navprincipal a {
+    color: var(--oscuro);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+}
+
+.navprincipal a:hover {
+    color: var(--secundario);
+    background-color: transparent;
+}
+
+@media (min-width: 768px) {
+    .navprincipal {
+        gap: 2rem;
+        width: auto;
+    }
+    
+    .navprincipal a {
+        font-size: 1.4rem;
+    }
+}
+
+/* --- HERO APPLE --- */
+.hero-apple {
+    background-color: var(--blanco);
+    display: flex;
+    align-items: center;      
+    justify-content: center;   
+    min-height: auto;          
+    padding-top: 10rem;        
+    padding-bottom: 6rem;
+    box-sizing: border-box;
+    position: relative;
+    overflow: visible; 
+}
+
+@media (min-width: 992px) {
+    .hero-apple {
+        min-height: calc(100vh - 7rem); 
+        padding-top: 2rem;
+        padding-bottom: 4rem;
+    }
+}
+
+.hero-contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6rem;
+    padding: 0 2rem;
+    width: 100%;
+}
+
+@media (min-width: 992px) {
+    .hero-contenido {
+        display: grid;
+        grid-template-columns: 45% 55%;
+        align-items: center;
+        gap: 4rem;
+    }
+}
+
+/* Texto del Hero */
+.hero-texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 100%;
+}
+
+.hero-texto h2 {
+    font-size: 4.2rem;
+    font-weight: 800;
+    color: var(--primario);
+    line-height: 1.2;
+    letter-spacing: -1px;
+    margin: 0 0 1.5rem 0;
+    text-transform: lowercase;
+}
+
+.hero-texto .ubi {
+    display: flex;
+    align-items: center;
+    color: var(--gris);
+    gap: 0.8rem;
+    margin-bottom: 3rem;
+}
+
+.hero-texto .ubi p {
+    font-size: 1.6rem;
+    margin: 0;
+    color: var(--gris);
+}
+
+.hero-texto .boton-apple {
+    margin-top: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .hero-texto h2 { font-size: 5.6rem; }
+}
+
+@media (min-width: 992px) {
+    .hero-texto {
+        align-items: center;
+        text-align: center;
+        max-width: 52rem;
+    }
+
+    .hero-texto h2 { 
+        font-size: 5.2rem; 
+        line-height: 1.15;
+    }
+}
+
+/* --- FIX CURSOR TYPEWRITER EN MÚLTIPLES RENGLONES --- */
+.typing-container {
+    display: block;
+    text-align: center;
+    min-height: 8rem;
+    margin: 0 auto;
+}
+
+#texto-tipeado {
+    color: var(--primario);
+}
+
+.cursor-tipeado {
+    display: inline;
+    color: var(--secundario);
+    font-weight: 300;
+    margin-left: 2px;
+    animation: parpadeoCursor 0.8s infinite;
+}
+
+@keyframes parpadeoCursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Botón Premium Tipo Apple */
+.boton-apple {
+    background-color: var(--primario);
+    color: var(--blanco);
+    padding: 1.2rem 3rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 3rem;
+    display: inline-block;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 48, 102, 0.15);
+}
+
+.boton-apple:hover {
+    transform: scale(1.03);
+    background-color: var(--secundario);
+}
+
+/* --- LA VENTANA DE INTERFAZ (MOCKUP INTERACTIVO) --- */
+.hero-mockup {
+    width: 100%;
+    max-width: 55rem;
+    background-color: var(--blanco);
+    border-radius: 1.2rem;
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+.ventana-header {
+    background-color: #f5f5f7;
+    padding: 1.2rem 1.6rem;
+    display: flex;
+    gap: 0.8rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.ventana-header .punto {
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    display: inline-block;
+}
+.ventana-header .rojo { background-color: #ff5f56; }
+.ventana-header .verde { background-color: #27c93f; }
+.ventana-header .amarillo { background-color: #ffbd2e; }
+
+.ventana-cuerpo {
+    padding: 3rem;
+    background-color: var(--blanco);
+    font-family: monospace;
+    font-size: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: left;
+}
+
+.linea-codigo {
+    color: var(--secundario);
+    font-weight: bold;
+}
+
+.linea-codigo span {
+    color: var(--gris);
+    font-weight: normal;
+}
+
+/* Micro-animaciones de Entrada */
+.animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-slide-up {
+    animation: slideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- INDICADOR DE SCROLL PREMIUM --- */
+.scroll-indicator {
+    display: none; 
+    visibility: hidden;
+    opacity: 0;
+}
+
+@media (min-width: 992px) {
+    .scroll-indicator {
+        display: flex;
+        visibility: visible;
+        opacity: 1;
+        position: absolute;
+        bottom: 8rem; 
+        left: 50%;
+        transform: translateX(-50%);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+        z-index: 10;
+    }
+}
+
+.mouse-icon {
+    width: 2.6rem;
+    height: 4.2rem;
+    border: 2px solid var(--primario); 
+    border-radius: 2rem;
+    position: relative;
+    animation: mouseBounce 2s infinite ease-in-out;
+}
+
+.mouse-wheel {
+    width: 0.4rem;
+    height: 0.8rem;
+    background-color: var(--secundario); 
+    border-radius: 0.2rem;
+    position: absolute;
+    top: 0.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: wheelScroll 1.6s infinite cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes mouseBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+}
+
+@keyframes wheelScroll {
+    0% { opacity: 0; transform: translate(-50%, 0); }
+    30% { opacity: 1; }
+    100% { opacity: 0; transform: translate(-50%, 10px); }
+}
+
+/* ==========================================================================
+   5. TÍTULO DE SECCIONES UNIFICADO (Regla Global Limpia)
+   ========================================================================== */
+.herramientas-apple h2,
+.proyectos-apple h2,
+.servicios-apple h2,
+.testimonios-apple h2 {
+    color: var(--primario);
+    font-size: 3.2rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 4rem;
+    text-transform: none;
+}
+
+@media (min-width: 768px) {
+    .herramientas-apple h2,
+    .proyectos-apple h2,
+    .servicios-apple h2,
+    .testimonios-apple h2 {
+        font-size: 4rem;
+    }
+}
+
+/* ==========================================================================
+   6. DISEÑO DE SECCIONES INTERNAS
+   ========================================================================== */
+
+/* --- BLOQUE 1: SOBRE MÍ (Gris Suave) --- */
+.sobre-mi-apple {
+    background-color: var(--blanco); 
+    margin-bottom: 0;
+    padding-top: 4rem;
+    padding-bottom: 4rem; 
+}
+
+@media (min-width: 992px) {
+    .sobre-mi-apple {
+        background-color: #f5f5f7;
+        padding: 8rem 2rem;
+    }
+}
+
+.grid-sobre-mi-apple {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.perfil-texto-apple h2 {
+    color: var(--primario);
+    text-align: center; 
+    font-size: 3.2rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-top: 0;
+    margin-bottom: 2.5rem;
+}
+
+.perfil-texto-apple p {
+    color: var(--oscuro);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    text-align: center; 
+}
+
+.perfil-texto-apple .introduccion {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--primario);
+}
+
+.perfil-texto-apple .cuerpo-perfil {
+    font-size: 1.6rem;
+    color: var(--gris);
+}
+
+.perfil-foto-apple {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.marco-foto-apple {
+    width: 100%;
+    max-width: 38rem;
+    height: 44rem;
+    border-radius: 1.6rem;
+    overflow: hidden;
+    box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.marco-foto-apple img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.marco-foto-apple:hover img {
+    transform: scale(1.02);
+}
+
+@media (min-width: 992px) {
+    .grid-sobre-mi-apple {
+        display: grid;
+        grid-template-columns: 55% 45%;
+        column-gap: 6rem;
+        align-items: center;
+    }
+
+    .perfil-texto-apple h2,
+    .perfil-texto-apple p {
+        text-align: left;
+    }
+}
+
+/* --- BLOQUE 2: HERRAMIENTAS APLICADAS (Blanco Puro) --- */
+.herramientas-apple {
+    background-color: var(--blanco);
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 4rem;       
+    padding-bottom: 4rem;  
+}
+
+.grid-herramientas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 0 2rem;         
+}
+
+.item-herramienta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7.5rem;
+    height: 7.5rem;
+    background-color: #ffffff; 
+    border-radius: 16px;
+    color: #86868b;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); 
+}
+
+.item-herramienta img,
+.item-herramienta svg {
+    width: 3.6rem;
+    height: 3.6rem;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.6); 
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.item-herramienta:hover {
+    background-color: #e8e8ed;
+    color: var(--primario);
+    transform: translateY(-4px);
+}
+
+.item-herramienta:hover img,
+.item-herramienta:hover svg {
+    filter: grayscale(0%) opacity(1); 
+    transform: scale(1.08);
+}
+
+@media (min-width: 768px) {
+    .grid-herramientas {
+        gap: 3rem;
+        max-width: 100%;
+    }
+    .item-herramienta {
+        width: 8.5rem;
+        height: 8.5rem;
+        border-radius: 20px;
+    }
+}
+
+/* --- BLOQUE 3: PROYECTOS DESTACADOS (Gris Suave) --- */
+.proyectos-apple {
+    background-color: #f5f5f7;
+    padding: 6rem 2rem;
+}
+
+.bento-grid-proyectos {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.tarjeta-proyecto-apple {
+    background-color: var(--blanco);
+    border-radius: 1.6rem;
+    border: 1px solid rgba(0, 48, 102, 0.08);
+    box-shadow: 0px 12px 32px rgba(0, 30, 66, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.tarjeta-proyecto-apple:hover {
+    transform: translateY(-6px);
+    box-shadow: 0px 20px 40px rgba(0, 30, 66, 0.14);
+}
+
+.imagen-proyecto-apple {
+    width: 100%;
+    height: 22rem;
+    overflow: hidden;
+    background-color: var(--grisbaj);
+}
+
+.imagen-proyecto-apple img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.tarjeta-proyecto-apple:hover .imagen-proyecto-apple img {
+    transform: scale(1.04);
+}
+
+.info-proyecto-apple {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.categoria-proyecto {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--secundario);
+    letter-spacing: 0.5px;
+    margin-bottom: 0.8rem;
+}
+
+.info-proyecto-apple h3 {
+    color: var(--primario);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-align: left;
+    letter-spacing: -0.3px;
+}
+
+.info-proyecto-apple p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: var(--gris);
+    margin: 0 0 2rem 0;
+}
+
+.enlace-proyecto-apple {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--primario);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.enlace-proyecto-apple:hover {
+    color: var(--secundario);
+    gap: 1.2rem;
+}
+
+/* Callout Inferior Portafolio */
+.callout-portafolio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 3rem 2rem;
+    background-color: var(--blanco);
+    border-radius: 1.6rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.callout-portafolio p {
+    font-size: 1.6rem;
+    color: var(--oscuro);
+    margin: 0;
+    font-weight: 500;
+}
+
+@media (min-width: 768px) {
+    .bento-grid-proyectos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
+
+    .callout-portafolio {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 2.5rem 4rem;
+    }
+}
+
+/* --- BLOQUE 4: SERVICIOS (Blanco Puro) --- */
+.servicios-apple {
+    background-color: var(--blanco); 
+    padding: 6rem 2rem;
+}
+
+.bento-grid-servicios {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.tarjeta-bento {
+    background-color: var(--blanco);
+    padding: 3.5rem;
+    border-radius: 1.6rem;
+    border: 1px solid rgba(0, 48, 102, 0.08);
+    box-shadow: 0px 12px 32px rgba(0, 30, 66, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.tarjeta-bento:hover {
+    transform: translateY(-6px);
+    box-shadow: 0px 20px 40px rgba(0, 30, 66, 0.14);
+}
+
+.tarjeta-bento .iconos-bento {
+    height: 7rem;
+    width: 7rem;
+    background-color: var(--grisbaj);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    color: var(--primario);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.tarjeta-bento:hover .iconos-bento {
+    background-color: var(--primario);
+    color: var(--blanco);
+}
+
+.tarjeta-bento .iconos-bento svg {
+    width: 2.8rem;
+    height: 2.8rem;
+    stroke: currentColor;
+}
+
+.tarjeta-bento h3 {
+    color: var(--primario);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.3px;
+}
+
+.tarjeta-bento p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: var(--gris);
+    margin: 0;
+    max-width: 32rem;
+}
+
+@media (min-width: 768px) {
+    .bento-grid-servicios {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 2.5rem;
+    }
+    
+    .tarjeta-bento {
+        align-items: flex-start;
+        text-align: left;
+        padding: 4rem 3rem;
+    }
+    
+    .tarjeta-bento p {
+        max-width: 100%;
+    }
+}
+
+/* --- BLOQUE 5: TESTIMONIOS (Estilo Social Proof & Reviews) --- */
+/* --- SUBTÍTULO ETIQUETA CENTRADO Y EN AZUL --- */
+.subtitulo-seccion {
+    color: var(--primario);
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+    .subtitulo-seccion {
+        font-size: 1.6rem;
+        margin-bottom: 4rem;
+    }
+}
+
+.testimonios-apple {
+    background-color: #fbfbfd;
+    padding: 7rem 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.04);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.bento-grid-testimonios {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.tarjeta-testimonio {
+    background-color: var(--blanco); 
+    padding: 3rem 2.5rem;
+    border-radius: 2rem;
+    border: 1px solid rgba(0, 48, 102, 0.06); 
+    box-shadow: 0px 8px 24px rgba(0, 30, 66, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    position: relative;
+    /* Transición fluida para el movimiento */
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.tarjeta-testimonio:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0px 20px 40px rgba(0, 30, 66, 0.14) !important;
+    border-color: rgba(0, 48, 102, 0.2);
+}
+
+/* Header con Avatar e Indicadores */
+.testimonio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.8rem;
+}
+
+.avatar-iniciales {
+    width: 4.2rem;
+    height: 4.2rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primario), var(--secundario));
+    color: var(--blanco);
+    font-weight: 700;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.5px;
+}
+
+.valoracion span {
+    color: #ffb800; /* Color dorado Apple */
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+}
+
+.tarjeta-testimonio .cita {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: var(--oscuro);
+    margin: 0 0 2rem 0;
+    font-style: normal;
+}
+
+.tarjeta-testimonio .autor-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05); 
+    padding-top: 1.5rem;
+}
+
+.tarjeta-testimonio .autor-info strong {
+    font-size: 1.4rem;
+    color: var(--primario);
+    font-weight: 700;
+}
+
+.tarjeta-testimonio .autor-info span {
+    font-size: 1.3rem;
+    color: var(--gris);
+}
+
+@media (min-width: 992px) {
+    .bento-grid-testimonios {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 2.5rem;
+    }
+}
+
+/* --- BLOQUE 6: CONTACTO (Blanco Puro Cierre) --- */
+.contacto-apple {
+    background-color: var(--blanco); 
+    padding: 6rem 2rem;
+}
+
+.grid-contacto-apple {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.contacto-info h2 {
+    color: var(--primario);
+    font-size: 3.2rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.contacto-info p {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: var(--gris);
+    margin: 0;
+    text-align: left;
+}
+
+.form-apple {
+    width: 100%;
+}
+
+.contecampos-apple {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.campo-apple {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: left;
+}
+
+.campo-apple label {
+    color: var(--primario);
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.inputext-apple {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background-color: var(--blanco);
+    padding: 1.5rem;
+    border-radius: 1.2rem;
+    font-size: 1.5rem;
+    color: var(--oscuro);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    resize: none;
+}
+
+.inputext-apple:focus {
+    outline: none;
+    border-color: var(--secundario);
+    box-shadow: 0 0 0 3px rgba(0, 74, 117, 0.1);
+}
+
+.campo-apple textarea {
+    height: 16rem;
+}
+
+@media (min-width: 992px) {
+    .contacto-apple {
+        padding: 8rem 2rem;
+    }
+
+    .grid-contacto-apple {
+        display: grid;
+        grid-template-columns: 40% 60%;
+        column-gap: 6rem;
+        align-items: flex-start;
+    }
+
+    .contecampos-apple {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2rem;
+    }
+
+    .campo-apple:nth-child(3),
+    .campo-apple:nth-child(4) {
+        grid-column: 1 / 3;
+    }
+}
+
+/* ==========================================================================
+   7. BLOQUE DE REDES SOCIALES Y PIE DE PÁGINA
+   ========================================================================== */
+.redes-apple {
+    background-color: var(--blanco);
+    padding: 6rem 2rem 2rem 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05); 
+    width: 100%;
+}
+
+.grid-redes-apple {
+    max-width: 120rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    gap: 2.5rem;            
+}
+
+@media (min-width: 768px) {
+    .grid-redes-apple {
+        flex-direction: row; 
+        justify-content: center;
+        gap: 4rem;
+    }
+}
+
+.enlace-red-apple {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none; 
+    color: var(--primario);
+    font-size: 1.5rem;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+}
+
+.enlace-red-apple:hover {
+    opacity: 0.6;
+}
+
+.enlace-red-apple svg {
+    color: var(--primario);
+}
+
+/* --- FOOTER FINAL --- */
+.footer-apple {
+    max-width: 120rem;
+    margin: 0 auto;
+    text-align: center;
+    padding: 3rem 2rem 6rem 2rem;
+}
+
+.footer-apple p {
+    font-size: 1.3rem;
+    color: var(--gris);
+    margin: 0;
+    font-weight: 400;
+}
+
+/* ==========================================================================
+   8. ANCHO COMPLETO (Overrides)
+   ========================================================================== */
+main.contenedor.sombra {
+    max-width: 100%;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* ==========================================================================
+   9. PANTALLA DE CARGA (PRELOADER PREMIUM)
+   ========================================================================== */
+#pantalla-carga {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--blanco);
+    z-index: 9999; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s ease;
+    opacity: 1;
+    visibility: visible;
+}
+
+#pantalla-carga.oculto {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.contenido-carga {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-carga {
+    color: var(--primario);
+    font-size: 4rem;
+    letter-spacing: -1px;
+    margin: 0 0 1rem 0;
+    animation: cargarTexto 0.8s ease-out forwards;
+}
+
+.logo-carga span {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.subtitulo-carga {
+    color: var(--gris);
+    font-size: 1.6rem;
+    margin: 0 0 3rem 0;
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
+    opacity: 0;
+    animation: cargarTexto 0.8s ease-out 0.2s forwards; 
+}
+
+.linea-progreso {
+    width: 12rem;
+    height: 2px;
+    background-color: var(--grisbaj);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.linea-progreso::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--secundario);
+    animation: progreso 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cargarTexto {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes progreso {
+    to { width: 100%; }
+}
+
+/* ==========================================================================
+   10. TRANSICIÓN Y ANIMACIONES DE REVELACIÓN POR SCROLL
+   ========================================================================== */
+.transicion-pagina {
+    opacity: 0;
+    transform: translateY(15px); 
+    animation: entradaSuave 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes entradaSuave {
+    to {
+        opacity: 1;
+        transform: translateY(0); 
+    }
+}
+
+.revelar-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform; 
+}
+
+.revelar-scroll.activo {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.revelar-bento {
+    opacity: 0;
+    transform: scale(0.96);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.revelar-bento.activo {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ==========================================================================
+   11. MODO OSCURO (DARK MODE) Y BOTÓN FLOTANTE
+   ========================================================================== */
+
+/* --- 1. VARIABLES BASE (Inversión de colores) --- */
+body.dark-mode {
+    --blanco: #001a33; 
+    --primario: #ffffff; 
+    --secundario: #DFE9F3; 
+    --oscuro: #ffffff; 
+    --gris: #b0c4de; 
+    --grisbaj: #003066; 
+}
+
+/* --- 2. FONDOS DE SECCIONES Y NAVEGACIÓN --- */
+body.dark-mode .sobre-mi-apple,
+body.dark-mode .proyectos-apple,
+body.dark-mode .testimonios-apple {
+    background-color: #001224; 
+}
+
+body.dark-mode .barra-superior {
+    background-color: rgba(0, 26, 51, 0.8); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .navprincipal a,
+body.dark-mode .titulo {
+    color: #ffffff !important; 
+}
+
+body.dark-mode .navprincipal a:hover {
+    color: #b0c4de !important; 
+}
+
+/* --- 3. BOTÓN FLOTANTE (Luna/Sol) --- */
+.btn-dark-mode {
+    position: fixed;
+    bottom: 3rem;
+    left: 3rem;
+    width: 5.5rem;
+    height: 5.5rem;
+    border-radius: 50%;
+    background-color: var(--primario);
+    color: var(--blanco);
+    border: none;
+    box-shadow: 0 8px 24px rgba(0, 48, 102, 0.3);
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+}
+
+.btn-dark-mode:hover {
+    transform: scale(1.1);
+    background-color: var(--secundario);
+    color: var(--oscuro);
+}
+
+/* --- 4. SECCIÓN HERO (Terminal, Botón y Scroll) --- */
+body.dark-mode .hero-mockup {
+    background-color: #001f3e; 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.5); 
+}
+
+body.dark-mode .ventana-header {
+    background-color: rgba(255, 255, 255, 0.05); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .ventana-cuerpo {
+    background-color: transparent; 
+}
+
+body.dark-mode .boton-apple {
+    background-color: #0A84FF !important; 
+    color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(10, 132, 255, 0.3);
+}
+
+body.dark-mode .boton-apple:hover {
+    background-color: #0071E3 !important; 
+}
+
+body.dark-mode .mouse-icon {
+    border-color: rgba(255, 255, 255, 0.6); 
+}
+
+body.dark-mode .mouse-wheel {
+    background-color: #0A84FF; 
+}
+
+/* --- 5. SECCIÓN SOBRE MÍ (Marco de foto) --- */
+body.dark-mode .marco-foto-apple {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.8), 0px 0px 20px rgba(10, 132, 255, 0.1); 
+}
+
+/* --- 6. HERRAMIENTAS APLICADAS (Cajas e Iconos) --- */
+body.dark-mode .item-herramienta {
+    background-color: transparent !important; 
+    border: 1px solid rgba(255, 255, 255, 0.1) !important; 
+    box-shadow: none !important; 
+}
+
+body.dark-mode .item-herramienta:hover {
+    background-color: rgba(255, 255, 255, 0.08) !important; 
+    border: 1px solid rgba(255, 255, 255, 0.25) !important; 
+}
+
+/* Estado de reposo: Íconos en blanco translúcido (Gris claro) */
+body.dark-mode .item-herramienta svg,
+body.dark-mode .item-herramienta img {
+    /* brightness(0) vuelve cualquier icono negro, y invert(1) lo vuelve blanco puro */
+    filter: brightness(0) invert(1) opacity(0.7) !important; 
+}
+
+/* Estado Hover: Fijos en blanco puro brillante */
+body.dark-mode .item-herramienta:hover svg,
+body.dark-mode .item-herramienta:hover img {
+    filter: brightness(0) invert(1) opacity(1) !important; 
+}   
+
+
+/* --- 7. TARJETAS BENTO Y FORMULARIO (Rescate de profundidad) --- */
+body.dark-mode .tarjeta-bento,
+body.dark-mode .tarjeta-proyecto-apple,
+body.dark-mode .tarjeta-testimonio,
+body.dark-mode .inputext-apple,
+body.dark-mode .callout-portafolio {
+    background-color: rgba(255, 255, 255, 0.03); 
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}

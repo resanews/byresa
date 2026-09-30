@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - byResa.</title>
+    
+    <!-- Hojas de estilo, Fuentes y Favicon -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Text&display=swap" rel="stylesheet">
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css?v=6.0">
+    <link rel="icon" href="Images/LOGO FINAL.png" type="image/png">
+</head>
+
+<body>
+    <!-- Encabezado Fijo y Simétrico (Consistencia Global) -->
+    <header class="barra-superior">
+        <div class="nav-container contenedor">
+            <a href="index.html#inicio" class="titulo" style="text-decoration: none;">
+                <span>by</span>Resa.
+            </a>
+            <nav class="navprincipal">
+                <a href="index.html#sobre-mi">Sobre Mi</a>
+                <a href="index.html#servicios">Servicios</a>
+                <a href="portafolio.html">Portafolio</a>
+                <a href="mediakit.html">Media Kit</a>
+                <a href="index.html#contacto">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido con Animación de Entrada Fluida -->
+    <div class="transicion-pagina">
+        <section class="hero-apple seccion-separada">
+            <div class="contenedor" style="text-align: center; padding-top: 10rem;">
+                <h2 style="color: var(--primario); font-size: 4.8rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 2rem;">Portafolio</h2>
+                <p style="color: var(--gris); font-size: 1.8rem; max-width: 60rem; margin: 0 auto; line-height: 1.6;">
+                    Próximamente. Estamos curando una selección de proyectos estratégicos, identidades de marca y campañas de contenido digital de alto impacto.
+                </p>
+            </div>
+        </section>
+    </div> <!-- Cierre de class="transicion-pagina" -->
+
+    <!-- Bloque de Enlaces y Redes (Consistencia de marca) -->
+    <section id="contenido" class="redes-apple seccion-separada">
+        <div class="contenedor grid-redes-apple">
+            <a href="https://www.youtube.com/@byresa" target="_blank" rel="noopener noreferrer" class="enlace-red-apple">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"></path>
+                    <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon>
+                </svg>
+                <span>byresa.</span>
+            </a>
+
+            <a href="https://www.instagram.com/rauledsalgado/" target="_blank" rel="noopener noreferrer" class="enlace-red-apple">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                <span>@rauledsalgado</span>
+            </a>
+
+            <a href="mailto:rauleduardosalgadoalvarez@gmail.com" class="enlace-red-apple">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <span>Correo</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Pie de página unificado -->
+    <footer class="footer-apple contenedor">
+        <p>Todos los derechos reservados. Raúl Salgado.</p>
+    </footer>
+
+    <!-- Botón Flotante de Modo Oscuro -->
+    <button id="btn-dark-mode" class="btn-dark-mode" type="button" aria-label="Alternar modo oscuro">
+        <!-- Icono Luna (Modo Claro) -->
+        <svg id="svg-luna" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <!-- Icono Sol (Modo Oscuro) -->
+        <svg id="svg-sol" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+    </button>
+
+    <!-- JavaScript Principal -->
+    <script src="js/main.js?v=6.0"></script>
+</body>
+</html>
