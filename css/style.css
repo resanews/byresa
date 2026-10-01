@@ -1411,7 +1411,8 @@ body.dark-mode .callout-portafolio {
 .mk-panel-maestro {
     background-color: var(--blanco);
     border-radius: 2rem;
-    padding: 5rem;
+    /* Orden: Arriba, Derecha, Abajo, Izquierda */
+    padding: 2rem 5rem 5rem 5rem !important; 
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
     border: 1px solid var(--grisbaj);
 }
@@ -1523,11 +1524,60 @@ body.dark-mode .callout-portafolio {
 /* Alineación Forzada a la Izquierda para Cabeceras de Plataforma */
 .mk-platform-header { 
     display: flex; 
-    justify-content: flex-start !important; 
-    align-items: flex-start !important; 
+    justify-content: space-between !important; /* Empuja el botón hacia la derecha (donde estaba la X) */
+    align-items: center !important; /* Centra el botón verticalmente con el título */
     margin: 0 0 3rem 0 !important; 
     padding: 0 !important;
     width: 100%;
+}
+
+/* --- Botones de Enlace Directo a Redes (Circulares a la derecha) --- */
+.mk-link-red {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    /* Por defecto en modo claro: Fondo negro, icono blanco */
+    background-color: #000000;
+    color: #ffffff !important;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* Estado Hover: Revelan su color original de marca */
+.mk-link-red:hover {
+    transform: scale(1.1) translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.mk-link-red[data-red="tiktok"]:hover { background-color: #000000; }
+.mk-link-red[data-red="x"]:hover { background-color: #000000; }
+.mk-link-red[data-red="instagram"]:hover { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+.mk-link-red[data-red="youtube"]:hover { background-color: #FF0000; }
+.mk-link-red[data-red="twitch"]:hover { background-color: #9146FF; }
+
+/* Inversión en Modo Oscuro */
+body.dark-mode .mk-link-red {
+    /* Por defecto en modo oscuro: Fondo blanco, icono negro */
+    background-color: #ffffff;
+    color: #000000 !important;
+}
+
+/* Mantener el fondo blanco en hover para TikTok y X en modo oscuro para contraste */
+body.dark-mode .mk-link-red[data-red="tiktok"]:hover,
+body.dark-mode .mk-link-red[data-red="x"]:hover {
+    background-color: #ffffff;
+    color: #000000 !important;
+}
+
+/* En modo oscuro, Instagram, YouTube y Twitch revelan color, el ícono debe ser blanco */
+body.dark-mode .mk-link-red[data-red="instagram"]:hover,
+body.dark-mode .mk-link-red[data-red="youtube"]:hover,
+body.dark-mode .mk-link-red[data-red="twitch"]:hover {
+    color: #ffffff !important;
 }
 
 .mk-ph-izq {
